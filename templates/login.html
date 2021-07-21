@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./static/css/login.css">
+</head>
+
+<body width="100%" height="100%">
+    <form action="index.html" method="post" class="loginForm">
+        <h2>Login</h2>
+        <div class="idForm">
+            <input type="text" class="id" id="userid" placeholder="ID">
+        </div>
+        <div class="passForm">
+            <input type="password" class="pw" id="userpassword" placeholder="PW">
+        </div>
+        <button type="button" class="btn" onclick="login();">
+            LOG IN
+        </button>
+        <br>
+        <img src="./static/images/google.png" alt="google" style="width: 30px;" 
+        onclick="google()">
+
+        <div class="bottomText">
+            Don't you have ID? <a href="/sign">sign up</a>
+        </div>
+    </form>
+
+
+    <script>
+        // 세션을 제대로 설정했는지 확인해보기 위한 함수 하지만 로그인을 하지 않아도 세션이 이미 존재한다.....
+        function mypage_check() {
+            alert(sessionStorage.setItem("user", document.getElementById("userid").value))
+
+            // if (uid == "null") {
+            //     swal("로그인이 필요한 항목입니다.", "회원 가입 또는 로그인을 해주세요", "error");
+            // }
+            // else {
+            //     window.location.href = '/shop';
+            //     // location.replace("/user/mypageForm.jsp");
+        }
+        
+    </script>
+
+
+    <script>
+        // 로그인 버튼 눌렀을때 발동되는 함수
+        function login() {
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // data = app.py에서 return 받은 Crawling.interparkcrawling(word)결과값
+                    data = this.responseText;
+                    // data = JSON.parse(data);
+                    console.log(data)
+                    if (data == "로그인이 완료되었습니다!") {
+                        alert(data)
+
+                        // {"user" : 아이디} 형태로 세션정보 저장!!!
+                        sessionStorage.setItem("user", document.getElementById("userid").value)
+                        window.location.href = '/shop'
+                    }
+                    else {
+                        alert(data)
+                    }
+
+
+                }
+            };
+
+            // choice_data = document.getElementById('linestoplist').innerText;
+            let id = document.getElementById("userid").value
+            let pw = document.getElementById("userpassword").value
+
+            querystring = "id=" + id + "&pw=" + pw;
+            xhttp.open("POST", "/login_check");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            console.log(querystring);
+            xhttp.send(querystring);
+        }
+
+        function google() {
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // data = app.py에서 return 받은 Crawling.interparkcrawling(word)결과값
+                    data = this.responseText;
+                    // data = JSON.parse(data);
+                    console.log(data)
+                    alert(data)
+                    // window.location.href = '/shop'
+
+                }
+            };
+
+            // xhttp.open("POST", "/google");
+            xhttp.open("POST", "/login/google/authorized");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            console.log('----------');
+            xhttp.send();
+        }
+
+
+    </script>
+</body>
+
+</html>

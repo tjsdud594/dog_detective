@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>통계</title>
+    <link rel="stylesheet" href="static/css/default.css">
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <nav class="global-nav">
+                <div class="global-nav-links">
+                    <a href="start" class="global-nav-item">개요</a>
+                    <a href="introduce" class="global-nav-item">개발자</a>
+                    <a href="/shop" class="global-nav-item">쇼핑몰</a>
+                    <a href="/index" class="global-nav-item">통계</a>
+                </div>
+            </nav>
+            <nav class="local-nav">
+                <div class="local-nav-links">
+                    <a href="home" class="product-name"><img src="static/images/logo.png" alt="로고" width="71"
+                            height="70"></a>
+                    <a href="next">추후개발</a>
+                    <a href="mbti" target="blank">mbti</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    ​
+    <div style="height: 150px;">
+        ​
+    </div>
+    ​
+    <button onclick="userinfo()">내정보 보기</button>
+    <div id="myinfo">
+        ​
+    </div>
+    <hr>
+    <button onclick="userbuy()">내정보 보기</button>
+    <div id="mybuy">
+
+    </div>
+    <hr>
+    <button onclick="quit()">탈퇴하기</button>
+
+    ​
+    ​
+    <script>
+        function quit() {
+            window.location.href = 'quit'
+        }
+
+        function userbuy() {
+            if (sessionStorage.getItem('user') == null) {
+                alert("로그인이 필요한 항목입니다.");
+
+            }
+            else {
+
+                const xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        data = this.responseText;
+                        // data = eval(data)
+                        data = JSON.parse(data)
+                        console.log(data)
+
+                        // tab = '<table style="border: 1">'
+                        // tab = tab + '<tr><th>주문번호</th><th>주문물품</th><th>가격</th><th>주문 아이디</th></tr>';
+
+                        // for(i=0; i < length.data; i++){
+                        //     tab = tab + '<tr><td>' + data[i].p_no + ' || ' + '</td><td>' + data[i].p_name + ' || ' + '</td><td>' + data[i].p_price + '</td><td>' + data[i].id + '</td></tr>';
+                        // }
+                        
+                        // document.getElementById("mybuy").innerHTML = tab + '</table>';
+
+                    }
+                };
+                let id = sessionStorage.getItem('user')
+
+                querystring = "id=" + id;
+                xhttp.open("POST", "/vieworder");
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                console.log(querystring)
+                xhttp.send(querystring);
+            }
+        }
+
+
+
+
+        function userinfo() {
+            if (sessionStorage.getItem('user') == null) {
+                alert("로그인이 필요한 항목입니다.");
+
+            }
+            else {
+
+                const xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        data = this.responseText;
+                        data = eval(data)
+                        // document.getElementById("myinfo").innerHTML = data;
+                        // console.log(data)
+
+                        tab = '<table style="border: 1">';
+                        tab = tab + '<tr><th>이름</th><th>아이디</th><th>이메일</th></tr>';
+                        tab = tab + '<tr><td>' + data[0].name + ' || ' + '</td><td>' + data[0].id + ' || ' + '</td><td>' + data[0].email + '</td></tr>';
+                        
+                        document.getElementById("myinfo").innerHTML = tab + "</table>";
+
+
+                    }
+                };
+                let id = sessionStorage.getItem('user')
+
+                querystring = "id=" + id;
+                xhttp.open("POST", "/usercheck");
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                console.log(querystring)
+                xhttp.send(querystring);
+            }
+        }
+    </script>
+</body>
+​
+
+</html>

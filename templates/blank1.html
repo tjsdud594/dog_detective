@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>멍탐정</title>
+	<link rel="stylesheet" href="./static/css/default.css">
+	<link rel="stylesheet" href="./static/css/main.css">
+</head>
+
+<body>
+	<div class="container">
+		<nav class="global-nav">
+			<div class="global-nav-links">
+				<a href="start" class="global-nav-item">개요</a>
+				<a href="introduce" class="global-nav-item">개발자</a>
+				<!-- <a href="" class="global-nav-item" onclick="logincheck()">쇼핑몰</a> -->
+				<button onclick="logincheck()">쇼핑몰</button>
+				<a href="/blank1" class="global-nav-item">통계</a>
+			</div>
+		</nav>
+		<nav class="local-nav">
+			<div class="local-nav-links">
+				<a href="home" class="product-name">
+					<img src="static/images/logo.png" alt="로고" width="71" height="70"></a>
+				<a href="next">추후개발 &nbsp;</a>
+				<a href="mbti" target="blank">mbti</a>
+			</div>
+		</nav>
+		</nav>
+	</div>
+
+	<div style="height: 150px;">
+
+	</div>
+
+	<div>
+		<iframe style="margin-left: 180px;margin-bottom: 20px;"
+			src="http://localhost:5601/app/visualize#/edit/885db180-e63c-11eb-9fe0-0b38ab1fa5c9?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(filters:!(),linked:!f,query:(language:kuery,query:''),uiState:(vis:(colors:('%EA%B0%81%20%EA%B5%AC%EB%B3%84%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98':%23F29191))),vis:(aggs:!((enabled:!t,id:'1',params:(customLabel:'%EA%B0%81%20%EA%B5%AC%EB%B3%84%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98',field:%EA%B3%84),schema:metric,type:max),(enabled:!t,id:'2',params:(field:%EC%9E%90%EC%B9%98%EA%B5%AC,missingBucket:!f,missingBucketLabel:Missing,order:desc,orderBy:'1',otherBucket:!f,otherBucketLabel:Other,size:10),schema:segment,type:terms)),params:(addLegend:!t,addTimeMarker:!f,addTooltip:!t,categoryAxes:!((id:CategoryAxis-1,labels:(filter:!f,rotate:0,show:!t,truncate:200),position:left,scale:(type:linear),show:!t,style:(),title:(),type:category)),grid:(categoryLines:!t,valueAxis:ValueAxis-1),labels:(show:!t),legendPosition:right,orderBucketsBySum:!f,row:!t,seriesParams:!((data:(id:'1',label:'%EA%B0%81%20%EA%B5%AC%EB%B3%84%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98'),drawLinesBetweenPoints:!t,lineWidth:2,mode:normal,show:!t,showCircles:!t,type:histogram,valueAxis:ValueAxis-1)),thresholdLine:(color:%23E7664C,show:!f,style:full,value:10,width:1),times:!(),type:histogram,valueAxes:!((id:ValueAxis-1,labels:(filter:!f,rotate:75,show:!f,truncate:100),name:LeftAxis-1,position:bottom,scale:(mode:normal,setYExtents:!f,type:linear),show:!f,style:(),title:(text:'%EA%B0%81%20%EA%B5%AC%EB%B3%84%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98'),type:value))),title:'%EA%B0%81%20%EA%B5%AC%EB%B3%84%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98(bar)',type:horizontal_bar))"
+			height="600" width="800"></iframe>
+	</div>
+
+	<div>
+		<iframe style="margin-left: 180px;margin-bottom: 20px;"
+			src="http://localhost:5601/app/visualize#/edit/e195db30-e60d-11eb-9fe0-0b38ab1fa5c9?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(filters:!(),linked:!f,query:(language:kuery,query:''),uiState:(),vis:(aggs:!((enabled:!t,id:'1',params:(customLabel:'%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B5%AC%EB%B3%84%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98%20word',field:%EA%B3%84),schema:metric,type:sum),(enabled:!t,id:'2',params:(field:%EC%9E%90%EC%B9%98%EA%B5%AC,missingBucket:!f,missingBucketLabel:Missing,order:desc,orderBy:'1',otherBucket:!f,otherBucketLabel:Other,size:30),schema:segment,type:terms)),params:(maxFontSize:72,minFontSize:18,orientation:single,scale:linear,showLabel:!t),title:'%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EA%B5%AC%EB%B3%84%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98%20word',type:tagcloud))"
+			height="600" width="800"></iframe>
+
+	</div>
+
+	<div>
+		<iframe style="margin-left: 180px;margin-bottom: 20px;"
+			src="http://localhost:5601/app/visualize#/edit/197a7700-e63a-11eb-9fe0-0b38ab1fa5c9?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(filters:!(),linked:!f,query:(language:kuery,query:''),uiState:(),vis:(aggs:!((enabled:!t,id:'1',params:(customLabel:'%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%A7%80%EC%97%AD%EB%B3%84%20%EC%B4%9D%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98',field:%EA%B3%84),schema:metric,type:sum),(enabled:!t,id:'2',params:(field:%EC%9E%90%EC%B9%98%EA%B5%AC,missingBucket:!f,missingBucketLabel:Missing,order:desc,orderBy:'1',otherBucket:!f,otherBucketLabel:Other,size:10),schema:segment,type:terms)),params:(addLegend:!t,addTooltip:!t,isDonut:!t,labels:(last_level:!t,show:!t,truncate:100,values:!t),legendPosition:right,type:pie),title:'%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%A7%80%EC%97%AD%EB%B3%84%20%EC%B4%9D%20%EC%9C%A0%EA%B8%B0%EA%B2%AC%EC%88%98(top10)',type:pie))"
+			height="600" width="800"></iframe>
+	</div>
+
+	<script>
+		function logincheck() {
+			if (sessionStorage.getItem('user') == null) {
+				alert("로그인이 필요한 항목입니다.");
+				window.location.href = '/login';
+
+			}
+
+			else {
+				window.location.href = '/shop';
+			}
+		}
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>멍탐정</title>
+	<link rel="stylesheet" href="static/css/default.css">
+	<link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+	<div class="container">
+		<nav class="global-nav">
+			<div class="global-nav-links">
+				<a href="start" class="global-nav-item">개요</a>
+				<a href="introduce" class="global-nav-item">개발자</a>
+				<!-- <a href="" class="global-nav-item" onclick="logincheck()">쇼핑몰</a> -->
+				<button onclick="logincheck()">쇼핑몰</button>
+				<a href="/blank1" class="global-nav-item">통계</a>
+			</div>
+		</nav>
+		<nav class="local-nav">
+			<div class="local-nav-links">
+				<a href="home" class="product-name">
+					<img src="static/images/logo.png" alt="로고" width="71" height="70"></a>
+				<a href="next">추후개발 &nbsp;</a>
+				<a href="mbti" target="blank">mbti</a>
+			</div>
+		</nav>
+		</nav>
+	</div>
+	<section class="scroll-section" id="scroll-section-0">
+		<h1>멍탐정</h1>
+		<div class="sticky-elem sticky-elem-canvas">
+			<canvas id="video-canvas-0" width="1440" height="1420"></canvas>
+		</div>
+		<div class="sticky-elem main-message a">
+		</div>
+		<div class="sticky-elem main-message b">
+			<p>이 귀여운 친구의 이름은<br>그루입니당!</p>
+		</div>
+		<div class="sticky-elem main-message c">
+			<p>놀랍게도 <br>그루는 유기된 친구였는데요</p>
+		</div>
+		<div class="sticky-elem main-message d">
+			<p>우리한번 유기동물들의 실태를<br>파악해 보아요</p>
+		</div>
+	</section>
+	<section class="scroll-section" id="scroll-section-1">
+		<p class="description">
+			<img src="static/images/fact.jfif" width="1000" height="780">
+			지난해 주인에게 버림을 받거나 길을 잃어 보호시설에 들어간 반려동물이 13만5000마리가 넘는 것으로 집계됐다. 이 중 다시 주인 품에 안긴 동물은 10마리당 1마리에 그친 반면 절반
+			가량은 자연사나 안락사를 당한 것으로 나타났다.
+			농림축산검역본부가 발표한 2019년 반려동물 보호 및 복지관리 실태 조사 결과를 보면 지난해 전국 동물보호센터 284곳이 구조해 보호한 유기·유실 반려동물은 13만5791마리로 전년 대비
+			1만4714마리(12%) 증가한 것으로 나타났다. 하루 평균 372마리의 반려동물이 주인에게 버림을 받거나 길을 잃어 보호시설에 들어오고 있는 것이다. 검역본부 관계자는 “동물보호센터에서
+			구조해 보호하는 반려동물 중 대부분은 주인이 버린 경우”라면서 “동물보호센터에 의해 구조되지 않는 유기 반려동물까지 합하면 버려지는 반려동물의 수는 훨씬 더 많을 것”이라고 말했다.
+			유기·유실 반려동물 중 개가 75.4%로 가장 많고, 그다음은 고양이 23.5%, 토끼 등 기타 1.1%로 집계됐다.
+		</p>
+	</section>
+	<section class="scroll-section" id="scroll-section-2">
+		<div class="sticky-elem sticky-elem-canvas">
+			<canvas id="video-canvas-1" width="1440" height="1540"></canvas>
+		</div>
+		<div class="sticky-elem main-message a">
+			<p>
+				<small>그루의 삶</small>
+				그녀의 나이 1살
+			</p>
+		</div>
+		<div class="sticky-elem desc-message b">
+			<p>
+				간식앞에 무릎을 꿇다
+			</p>
+			<div class="pin"></div>
+		</div>
+		<div class="sticky-elem desc-message c">
+			<p>
+			</p>
+			<div class="pin"></div>
+		</div>
+	</section>
+	<section class="scroll-section" id="scroll-section-3">
+		<p class="mid-message">
+			<strong>비비디 바비디 부!</strong><br>
+			어머나 세상에 마법으로 인해서
+			우리 그루가<br>그림이 되버렸네요
+		</p>
+		<canvas class="image-blend-canvas" width="1920" height="1080"></canvas>
+		<p class="canvas-caption">
+			이러한 귀여운 반려동물 친구들과 그들의 가족들을 위한 어플리케이션 및 웹을 개발할 예정이며 추후의 보다 나은 서비스로 여러분들에게 찾아갈 것을 약속합니다. 사업의 관심이 있거나 투자 하고
+			싶으신 분들은 아래로 연락주시면 감사하겠습니다.
+		</p>
+	</section>
+	<footer class="footer">
+		<a href='tel:010-9962-4852'>
+			<p>📞</p>
+		</a>
+		<a href="mailto:magmom95@naver.com?Subject=요렇게 제가 원하는 메일이 뜨져." target="_top">
+			<p>📧</p>
+		</a>
+	</footer>
+	</div>
+
+	<script src="static/js/main.js"></script>
+
+	<script>
+
+		function logincheck() {
+			if (sessionStorage.getItem('user') == null) {
+				alert("로그인이 필요한 항목입니다.");
+				window.location.href = '/login';
+
+			}
+
+			else {
+				window.location.href = '/shop';
+			}
+		}
+
+
+
+		function logout() {
+			if (sessionStorage.getItem('user') == null) {
+				alert("로그인이 필요한 항목입니다.");
+				window.location.href = '/login';
+			}
+
+			else {
+
+				// 세션에 저장된 아이디값을 가져온다!!!!
+				// alert(sessionStorage.getItem('user') + '님 정상적으로 로그아웃 되었습니다!')
+				const xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+						data = this.responseText;
+						// data = JSON.parse(data);
+						alert(data)
+						alert(sessionStorage.getItem('user') + '님 정상적으로 로그아웃 되었습니다!')
+						sessionStorage.clear()
+						window.location.href = '/'
+					}
+				}
+				xhttp.open("GET", "/logout_check");
+				xhttp.send();
+			}
+		}
+
+	</script>
+
+
+</body>
+
+</html>

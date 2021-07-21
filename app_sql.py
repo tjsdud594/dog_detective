@@ -128,7 +128,7 @@ def login_check():
         return "아이디나 비밀번호가 일치하지 않습니다"
 
 # 구글 소셜로그인
-@app.route('/google', methods=['POST'])
+@app.route('/google', methods=['GET'])
 @oauth2.required
 def google():
     print("구글로그인=============================")

@@ -3,7 +3,7 @@ const head = document.getElementsByTagName('head')[0];
 const dark_css = document.createElement('link');
 dark_css.rel = 'stylesheet';
 dark_css.type = 'text/css';
-dark_css.href = 'css/darkmode.css';
+dark_css.href = 'static/css/darkmode.css';
 
 const goDark = () => {
   flag = true;

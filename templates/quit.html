@@ -39,9 +39,9 @@
                     console.log(data)
                     
                     if (data == '회원탈퇴가 완료되었습니다!') {
-                        
+                        alert(sessionStorage.getItem('user') + '님의' + data);
                         window.location.href = '/'
-                        alert(data);
+                        sessionStorage.clear()
                     }
                     else{
                         alert(data);

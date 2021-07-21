@@ -99,9 +99,7 @@
                 }
             };
 
-            // xhttp.open("POST", "/google");
-            xhttp.open("POST", "/login/google/authorized");
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.open("GET", "/google");
             console.log('----------');
             xhttp.send();
         }

@@ -20,7 +20,7 @@ oauth2 = UserOAuth2(app)
 
 
 # 통계 화면으로 이동
-@app.route('/home', methods=['get'])
+@app.route('/', methods=['get'])
 def getblank1():
     return render_template('home.html') 
 
@@ -57,9 +57,9 @@ def getmbti():
     return render_template('mbti.html')  
 
 # 소개(시바견그림) 화면으로 이동
-@app.route('/', methods=['get'])
-def getindex():
-    return render_template('index.html')  
+# @app.route('/', methods=['get'])
+# def getindex():
+#     return render_template('index.html')  
 
 # 쇼핑몰로 이동
 @app.route('/shop', methods=['get'])

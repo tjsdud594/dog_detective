@@ -10,11 +10,11 @@ app.secret_key = 'aaa!111/'
 app.config['SECRET_KEY'] = 'aaa!111/'
 
 # API 사용을 위해서 아래와 같이 관련 정보를 담은 json 파일(개발자 페이지에서 받을 수 있다)을 사용할 수 있고,
-app.config['GOOGLE_OAUTH2_CLIENT_SECRETS_FILE'] = 'client_secret_880960686462-ng2l9g8jcv8ahhpr9iftrb1neecihe5b.apps.googleusercontent.com.json'
+# app.config['GOOGLE_OAUTH2_CLIENT_SECRETS_FILE'] = 'client_secret_880960686462-ng2l9g8jcv8ahhpr9iftrb1neecihe5b.apps.googleusercontent.com.json'
 
 # 이렇게 코드에 직접 넣을 수도 있다.
-# app.config['GOOGLE_OAUTH2_CLIENT_ID'] = 'your-client-id'
-# app.config['GOOGLE_OAUTH2_CLIENT_SECRET'] = 'your-client-secret'
+app.config['GOOGLE_OAUTH2_CLIENT_ID'] = '880960686462-ng2l9g8jcv8ahhpr9iftrb1neecihe5b.apps.googleusercontent.com'
+app.config['GOOGLE_OAUTH2_CLIENT_SECRET'] = 'jKbsqwUxXCve1si9ypy4gQbe'
 
 oauth2 = UserOAuth2(app)
 

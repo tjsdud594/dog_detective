@@ -1,32 +1,7 @@
 import pymysql
+import collections
+import json
 
-class Database():
-    def __init__(self):
-        self.db = pymysql.connect(host='localhost',
-                                    user='root',
-                                    password='1234',
-                                    db = 'meong_tamjung',
-                                    charset= 'utf-8')
-        # 디폴트 Array based cursor는 Row의 결과값을 배열로 (PyMyMsql에서 정확히는 튜플) 리턴하는데, 
-        # cursor 생성시 DictCursor 옵션을 주면, Row 결과를 Dictionary 형태로 리턴한다.
-        # http://pythonstudy.xyz/python/article/202-MySQL-%EC%BF%BC%EB%A6%AC
-        self.cursor(self.db.cursor(pymysql.cursor.DictCursor))
-
-    def execute(self, query, args={}):
-        self.cursor.execute(query, args)
-
-    def executeOne(self, query, args={}):
-        self.cursor.execute(query, args)
-        row = self.cursor.fetchone()
-        return row
-
-    def executeAll(self, query, args={}):
-        self.cursor.execute(query, args)
-        row = self.cursor.fetchall()
-        return row
-    
-    def commit(self):
-        self.db.commit()
 
 class Database2():
     def insertdb(data):
@@ -146,7 +121,92 @@ class Database2():
         conn.commit()
         conn.close()
 
+    def insert(data):
+        try:
+            conn = pymysql.connect(host='localhost', user='root', password='1234', db='meong_tamjung', charset='utf8')
+            cursor = conn.cursor()
+            try:
+                cursor.execute("INSERT INTO product(p_name, p_price) VALUES (%s, %s)", data)
+            except Exception as e:
+                print(e)
 
+        except Exception as e:
+            print(e)
+
+        conn.commit()
+        conn.close()
+
+    def select(data):
+        try:
+            conn = pymysql.connect(host='localhost', user='root', password='1234', db='meong_tamjung', charset='utf8')
+            cursor = conn.cursor()
+            try:
+                cursor.execute("SELECT * FROM user where id = %s", data)
+                rows = cursor.fetchall()
+                v = []
+                for row in rows:
+                    d = collections.OrderedDict()
+                    d['name'] = row[3]
+                    d['id'] = row[1]
+                    d['email'] = row[4]
+                    v.append(d)
+                data = json.dumps(v, ensure_ascii=False)
+                print(data)
+            except Exception as e:
+                print(e)
+        except Exception as e:
+            print(e)
+        finally:
+            cursor.close()
+            conn.close()
+        return data
+        # print(data)
+
+
+    def insertdb2(data):
+        conn = pymysql.connect(host='localhost', user='root', password='1234', db='meong_tamjung', charset='utf8')
+        cursor = conn.cursor()
+
+        try:
+            cursor.execute("INSERT INTO p_order(p_name, p_price, id) VALUES (%s, %s, %s)", data)
+            print('DB 완료')
+
+        except Exception as e:
+            print(e)
+        
+        conn.commit()
+        conn.close()
+
+
+    def view_order(id):
+        try:
+            conn = pymysql.connect(host='localhost', user='root', password='1234', db='meong_tamjung', charset='utf8')
+            cursor = conn.cursor()
+
+            try:
+                cursor.execute("select * from p_order where id=%s", id)
+                rows = cursor.fetchall()
+                v = []
+                for row in rows:
+                    d = collections.OrderedDict()
+                    d['p_no'] = row[0]
+                    d['p_name'] = row[1]
+                    d['p_price'] = row[2]
+                    d['id'] = row[3]
+                    v.append(d)
+                data = json.dumps(v, ensure_ascii=False)
+                print(data)
+
+                print('완료')
+            except Exception as e:
+                print(e)
+            
+        except Exception as e:
+            print(e)
+
+        conn.commit()
+        conn.close()
+        return data
 
 
 # if __name__=="__main__":

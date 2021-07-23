@@ -5,3 +5,6 @@
 
 ### 2. ERD
 <img src="https://github.com/sonyujin95/meong_tamjung/blob/main/images/ERD%20-v1.png?raw=true" width="600">
+
+### 3. FIGMA
+![image](https://user-images.githubusercontent.com/84061081/126780651-5ff7e5db-e8d9-4516-b889-3390f4516fea.png)

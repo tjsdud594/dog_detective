@@ -3,7 +3,7 @@ DROP TABLE user;
 -- 회원가입 테이블 
 CREATE TABLE user (u_id INT not null auto_increment primary key,
      id varchar(20) not null unique,
-     pw varchar(20) not null,
+     pw varchar(256) not null,
 	 name varchar(20) not null,
      email varchar(50) not null unique);
      
@@ -17,7 +17,7 @@ DROP TABLE deleteuser;
 -- 회원탈퇴 테이블 형성
 CREATE TABLE deleteuser (u_id INT not null auto_increment primary key,
      id varchar(20) not null unique,
-     pw varchar(20) not null,
+     pw varchar(256) not null,
 	 name varchar(20) not null,
      email varchar(50) not null unique,
      deldate DATE);

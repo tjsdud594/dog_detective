@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, request, session
 from flask import current_app
 from oauth2client.contrib.flask_util import UserOAuth2
 from dao import Database2
+import hashlib
 
 
 app = Flask(__name__)
@@ -84,6 +85,9 @@ def sign_in():
     pw = request.form.get('pw')
     name = request.form.get('name')
     email = request.form.get('email')
+    pw = hashlib.sha256(pw.encode())
+    pw = pw.hexdigest()
+    print(pw)
     data = (id, pw, name, email)
     print(Database2.email_check(email))
     if Database2.email_check(email) != None:
@@ -114,6 +118,8 @@ def withdraw():
 def login_check():
     id = request.form.get('id')
     pw = request.form.get('pw')
+    pw = hashlib.sha256(pw.encode('utf-8'))
+    pw = pw.hexdigest()
     idpw = (id, pw)
     session.clear()
 

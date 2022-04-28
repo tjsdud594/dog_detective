@@ -20,6 +20,8 @@ app.config['GOOGLE_OAUTH2_CLIENT_SECRET'] = 'jKbsqwUxXCve1si9ypy4gQbe'
 oauth2 = UserOAuth2(app)
 
 
+
+
 # 통계 화면으로 이동
 @app.route('/', methods=['get'])
 def getblank1():

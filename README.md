@@ -5,4 +5,5 @@
 
 ### 2. ERD (수정중)
 <img src="https://github.com/sonyujin95/meong_tamjung/blob/main/images/ERD%20-v1.png?raw=true" width="600">
-<img src="https://github.com/tjsdud594/dog_detective/blob/master/images/%EB%A9%8D%ED%83%90%EC%A0%95.png" width="600">
+<img src="https://user-images.githubusercontent.com/84279479/166175255-009a3ef6-33be-4a57-b1f4-b18500e7fce7.png" width="600">
+![image](https://user-images.githubusercontent.com/84279479/166175255-009a3ef6-33be-4a57-b1f4-b18500e7fce7.png)
